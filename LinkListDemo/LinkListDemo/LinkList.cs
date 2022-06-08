@@ -8,7 +8,8 @@ namespace LinkedListDemo
 {
     public class LinkedList
     {
-        internal Node head;
+        public Node head;
+        public Node tail;
         public void Add(int data)
         {
             Node node = new Node(data);
@@ -45,6 +46,7 @@ namespace LinkedListDemo
             }
 
         }
+
     }
 
 }
