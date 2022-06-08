@@ -9,7 +9,8 @@ namespace LinkedListDemo
     public class LinkedList
     {
         public Node head;
-        public Node tail;
+        private int positon;
+
         public void Add(int data)
         {
             Node node = new Node(data);
@@ -27,6 +28,20 @@ namespace LinkedListDemo
                 temp.next = node;
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
+        }
+        public void Append(int data)
+        {
+            Node node = new Node(data);
+            if (head == null)
+            {
+                head = node;
+            }
+            else
+            {
+                Node temp = head;
+                head = node;
+                node.next = temp;
+            }
         }
 
         public void Display()
