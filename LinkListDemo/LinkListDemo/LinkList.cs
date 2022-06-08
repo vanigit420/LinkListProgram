@@ -9,8 +9,7 @@ namespace LinkedListDemo
     public class LinkedList
     {
         public Node head;
-        private int positon;
-
+        public Node tail;
         public void Add(int data)
         {
             Node node = new Node(data);
@@ -28,20 +27,6 @@ namespace LinkedListDemo
                 temp.next = node;
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
-        }
-        public void Append(int data)
-        {
-            Node node = new Node(data);
-            if (head == null)
-            {
-                head = node;
-            }
-            else
-            {
-                Node temp = head;
-                head = node;
-                node.next = temp;
-            }
         }
 
         public void Display()
@@ -61,25 +46,14 @@ namespace LinkedListDemo
             }
 
         }
-        public void Insert(int value)
+        internal Node RemoveFirstNode()
         {
-            Node node = new Node(value);
             if (this.head == null)
-                this.head = node;
-            else
             {
-                var temp = this.head;
-                var middle = this.head;
-                //find the middle node
-                while (temp.next!=null&&temp.next.next!=null)
-                {
-                    temp = temp.next.next;
-                    middle = middle.next;
-                }
-                //add node
-                node.next = middle.next;
-                middle.next = node;
+                return null;
             }
+            this.head = this.head.next;
+            return this.head;
         }
 
     }
